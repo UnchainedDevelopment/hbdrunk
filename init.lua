@@ -17,6 +17,13 @@ local drinks = dofile(minetest.get_modpath("hbdrunk") .. "/drinks.lua")
 -- Load the commands file
 dofile(minetest.get_modpath("hbdrunk") .. "/commands.lua")
 
+-- Register the "drunk" privilege
+minetest.register_privilege("drunk", {
+    description = "Allow players to set their intoxication level via a chat command.",
+    give_to_singleplayer = false,
+    give_to_admin = true,
+})
+
 -- Register HUD bar for intoxication
 hb.register_hudbar("intoxication", 0xFFFFFF, "Intoxication", 
     {
